@@ -19,7 +19,7 @@
 
 + (NSArray *)validSuits {
     
-    return nil;
+    return @[@"♠", @"♥", @"♣", @"♦"];
 }
 
 + (NSArray *)validRanks {
