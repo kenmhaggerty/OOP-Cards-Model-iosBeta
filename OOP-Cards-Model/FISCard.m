@@ -27,6 +27,12 @@
     return @[@"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
 }
 
+- (instancetype)init {
+    
+    self = [self initWithSuit:@"!" rank:@"N"];
+    return self;
+}
+
 - (instancetype)initWithSuit:(NSString *)suit rank:(NSString *)rank {
     
     self = [super init];
