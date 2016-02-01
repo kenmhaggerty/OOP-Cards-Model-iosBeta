@@ -35,12 +35,14 @@
 
 - (void)resetDeck {
     
-    //
+    [self gatherDealtCards];
+    [self shuffleRemainingCards];
 }
 
 - (void)gatherDealtCards {
     
-    //
+    [self.remainingCards addObjectsFromArray:self.dealtCards];
+    [self.dealtCards removeAllObjects];
 }
 
 - (void)shuffleRemainingCards {
