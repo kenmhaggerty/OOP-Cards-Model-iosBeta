@@ -30,8 +30,23 @@
 - (instancetype)initWithSuit:(NSString *)suit rank:(NSString *)rank {
     
     self = [super init];
+    if (self) {
+        _suit = suit;
+        _rank = rank;
+        _cardLabel = [FISCard cardLabelForSuit:suit rank:rank];
+        _cardValue = [FISCard cardValueForRank:rank];
+    }
     return self;
 }
 
++ (NSString *)cardLabelForSuit:(NSString *)suit rank:(NSString *)rank {
+    
+    return [NSString stringWithFormat:@"%@%@", suit, rank];
+}
+
++ (NSUInteger)cardValueForRank:(NSString *)rank {
+    
+    return MAX([[FISCard validRanks] indexOfObject:rank]+1, 10);
+}
 
 @end
