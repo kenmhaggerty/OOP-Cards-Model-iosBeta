@@ -45,6 +45,11 @@
     return self;
 }
 
+- (NSString *)description {
+    
+    return self.cardLabel;
+}
+
 + (NSString *)cardLabelForSuit:(NSString *)suit rank:(NSString *)rank {
     
     return [NSString stringWithFormat:@"%@%@", suit, rank];
