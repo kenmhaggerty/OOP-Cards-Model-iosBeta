@@ -47,7 +47,14 @@
 
 - (void)shuffleRemainingCards {
     
-    //
+    NSMutableArray *copiedDeck = [self.remainingCards mutableCopy];
+    [self.remainingCards removeAllObjects];
+    FISCard *card;
+    while (copiedDeck.count) {
+        card = [copiedDeck objectAtIndex:arc4random_uniform((unsigned int)copiedDeck.count)];
+        [copiedDeck removeObject:card];
+        [self.remainingCards addObject:card];
+    }
 }
 
 - (void)generateDeck {
