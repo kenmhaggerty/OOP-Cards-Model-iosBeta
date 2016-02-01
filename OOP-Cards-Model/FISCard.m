@@ -57,7 +57,7 @@
 
 + (NSUInteger)cardValueForRank:(NSString *)rank {
     
-    return MAX([[FISCard validRanks] indexOfObject:rank]+1, 10);
+    return MIN([[FISCard validRanks] indexOfObject:rank]+1, 10);
 }
 
 @end
