@@ -66,4 +66,12 @@
     }
 }
 
+- (NSString *)description {
+    NSMutableArray *cardDescriptions = [NSMutableArray arrayWithCapacity:self.remainingCards.count];
+    for (NSUInteger i = 0; i < self.remainingCards.count; i++) {
+        [cardDescriptions addObject:((FISCard *)[self.remainingCards objectAtIndex:i]).description];
+    }
+    return [NSString stringWithFormat:@"count: %lu\ncards: %@", (unsigned long)self.remainingCards.count, [cardDescriptions componentsJoinedByString:@" "]];
+}
+
 @end
