@@ -22,7 +22,15 @@
 
 - (FISCard *)drawNextCard {
     
-    return nil;
+    if (!self.remainingCards.count) {
+        NSLog(@"deck is empty");
+        return nil;
+    }
+    
+    FISCard *card = [self.remainingCards firstObject];
+    [self.remainingCards removeObject:card];
+    [self.dealtCards addObject:card];
+    return card;
 }
 
 - (void)resetDeck {
@@ -42,7 +50,11 @@
 
 - (void)generateDeck {
     
-    //
+    for (NSString *suit in [FISCard validSuits]) {
+        for (NSString *rank in [FISCard validRanks]) {
+            [self.remainingCards addObject:[[FISCard alloc] initWithSuit:suit rank:rank]];
+        }
+    }
 }
 
 @end
