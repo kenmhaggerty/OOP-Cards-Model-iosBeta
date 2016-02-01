@@ -10,6 +10,16 @@
 
 @implementation FISCardDeck
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _remainingCards = [NSMutableArray array];
+        _dealtCards = [NSMutableArray array];
+        [self generateDeck];
+    }
+    return self;
+}
+
 - (FISCard *)drawNextCard {
     
     return nil;
